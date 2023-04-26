@@ -11,10 +11,13 @@ import {
 import React from 'react';
 import Icon from 'react-native-vector-icons/Ionicons';
 
+
 const categoryIcons = [
   <Text>All</Text>,<Text>Olive</Text>,
   <Text>Amond</Text>,
   <Text>pistachio</Text>,
+  <Text>Orange</Text>,
+  <Text>Orange</Text>,
   <Text>Orange</Text>,
 ];
 
@@ -38,26 +41,46 @@ const FarmerView = () => {
   };
   return (
     <SafeAreaView style={{backgroundColor: 'white'}}>
-      <StatusBar translucent={false} backgroundColor="#337722" />
+      <StatusBar backgroundColor="#337722" />
 
       <ScrollView showsVerticalScrollIndicator={false}>
         <View style={styles.search}>
           <View>
-            <Text style={styles.headerTitle}>Welcome Farmer name</Text>
+           
+            <View style={styles.famertopview}>
+            <Icon
+                name="reorder-four-outline"
+                size={28}
+                color="white"
+                style={{paddingTop: 35,paddingRight:80}}
+              />
+               <Icon
+                name="person-circle-sharp"
+                size={50}
+                color="white"
+                style={{paddingTop: 35,paddingLeft:80}}
+              />
+              </View>
+              <Text style={styles.headerTitle}>Welcome Youssef Nasser</Text>
             <View style={styles.inputProduct}>
+           
               <Icon
                 name="md-search-outline"
                 size={28}
                 color="#c3c3c3"
-                style={{paddingTop: 10}}
+                style={{paddingTop: 10,}}
               />
               <TextInput placeholder="Search Place" style={{color: 'grey'}} />
             </View>
           </View>
         </View>
+        <View style={{marginTop:80}}>
+       <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
         <ListCategory />
+        </ScrollView>
+        </View>
         <View style={styles.textInputproduct}>
-          <Text style={styles.textProduct}> Products</Text>
+          <Text style={styles.textProduct}> Cooperatives</Text>
           <Text
             style={{
               paddingTop: 35,
@@ -75,7 +98,7 @@ const FarmerView = () => {
                 justifyContent: 'space-between',
                 marginTop: 5,
                 paddingBottom:20,}}>
-          <Text style={{paddingTop:30,fontSize:22,fontWeight:'bold'}}> cooperative</Text>
+          <Text style={{paddingTop:30,fontSize:22,fontWeight:'bold'}}>Productions</Text>
            <Text style={{ paddingTop: 30,
               paddingRight: 15,
               fontSize: 17,
@@ -92,18 +115,20 @@ export default FarmerView;
 const styles = StyleSheet.create({
   header: {
     backgroundColor: '#337722',
+   
   },
   search: {
     backgroundColor: '#337722',
-    height: '9%',
+    height: '13%',
     paddingHorizontal: 20,
     position: 'relative',
     borderBottomEndRadius: 25,
     borderBottomStartRadius: 25,
+    paddingTop:20
   },
   headerTitle: {
     fontSize: 16,
-    marginTop: 10,
+    marginTop: 20,
     color: 'white',
     fontWeight: 'bold',
   },
@@ -113,22 +138,20 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     borderRadius: 10,
     paddingTop: 5,
-    marginTop: 60,
+    marginTop: 35,
     flexDirection: 'row',
     paddingHorizontal: 10,
-
     elevation: 10,
   },
   ListCategory: {
-    marginTop: 40,
     marginHorizontal: 40,
     flexDirection: 'row',
     justifyContent: 'space-around',
-    marginRight:30,width:'100%',
+    marginRight:30,width:500,
   
   },
   iconContainer: {
-    marginTop: 40,
+    marginTop: 20,
     padding:5,
     borderRadius:5,
     widht: 60,
@@ -180,5 +203,11 @@ const styles = StyleSheet.create({
   },
   filterCat:{
     borderBottomColor: 'balck'
+  },
+  famertopview:{
+    display:'flex',
+    flexDirection:'row',
+    justifyContent:'space-around'
+  
   }
 });

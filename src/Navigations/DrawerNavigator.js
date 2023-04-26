@@ -1,25 +1,28 @@
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import React from 'react'
-
-import CustomDrawer from './CustomDrawer';
+import CustomDrawer from '../Components/CustomDrawer'
 import AddProduct from '../screens/Home/AddProduct';
-import EditProduct from '../screens/Home/EditProduct';
+import Icon from 'react-native-vector-icons/Ionicons';
+import Profile from '../screens/Home/Setting';
 import BottomTABScreen from './BottomTABScreen'
-import Profile from '../screens/Home/Profile';
-import FarmerView from '../screens/Home/FarmerView';
+import Addcoop from '../screens/Home/Addcoop';
 const Drawer = createDrawerNavigator();
 
 const MyDrawer=() =>{
   return (
-    <Drawer.Navigator screenOptions={{headerShown:false,
-        drawerActiveBackgroundColor:'rgb(220,220, 220)',drawerActiveTintColor:'black'}}
-       drawerContent={props=><CustomDrawer {...props}/>}
-       >
-        <Drawer.Screen name="bottomtab" component={BottomTABScreen}   />
-      <Drawer.Screen name="Farmer view" component={FarmerView}   />
-    <Drawer.Screen name="Add Product" component={AddProduct}   />
-    <Drawer.Screen name="Edit Product" component={EditProduct}   />
-    <Drawer.Screen  name="Profile" component={Profile} />
+    <Drawer.Navigator
+     screenOptions={{headerShown:false,drawerLabelStyle: {
+      marginLeft: -25,
+      fontFamily: 'Roboto-Medium',
+      fontSize: 15,
+    },drawerType:'slide',
+      }}
+       drawerContent={props=><CustomDrawer {...props}/>}>
+        <Drawer.Screen name="Explore" component={BottomTABScreen}  options={{drawerIcon: ()=>( <Icon name="file-tray-stacked-outline" size={20} color='black'/>) }}  />
+
+    <Drawer.Screen name="Add Production" component={AddProduct}  options={{drawerIcon: ()=>( <Icon name="add-outline" size={20} color='black'/>) }}  />
+    <Drawer.Screen name="Add Cooperative" component={Addcoop} options={{drawerIcon: ()=>( <Icon name="add" size={22} color='black'/>) }}  />
+    <Drawer.Screen  name="Settings" component={Profile} options={{drawerIcon: ()=>( <Icon name="settings-outline" size={22} color='black'/>) }} />
    
      {/* afiichage on drawer to active screen */}
     </Drawer.Navigator>

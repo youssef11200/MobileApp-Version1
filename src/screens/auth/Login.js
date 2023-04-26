@@ -8,10 +8,9 @@ import  Icon  from 'react-native-vector-icons/Ionicons';
 
 const Login = ({navigation}) => {
  
-    const [text, onChangeText] = React.useState("");
-    const [number, onChangeNumber] = React.useState(null);
-    const STYLES = ['default', 'dark-content', 'light-content'];
-    const TRANSITIONS = ['fade', 'slide', 'none'];
+    const [pass, onChangePass] = React.useState("");
+    const [number, onChangeNumber] = React.useState("");
+   
     
    
     
@@ -23,7 +22,7 @@ const Login = ({navigation}) => {
         barStyle='light-content'
         showHideTransition= 'slide'
       />
-      <View style={{alignItems: 'center', width: '60%' ,marginLeft:'12%'}}>
+      <View style={{alignItems: 'center', width: '70%' ,marginLeft:'12%'}}>
         <Text
           style={{
             color: 'white',
@@ -38,7 +37,7 @@ const Login = ({navigation}) => {
           style={{
             backgroundColor: 'white',
             height: '85%',
-            width: 300,
+            width: 350,
             borderTopLeftRadius: 130,
             paddingTop: 70,
             alignItems: 'center',
@@ -56,7 +55,7 @@ const Login = ({navigation}) => {
         style={styles.input1}
         onChangeText={onChangeNumber}
         value={number}
-        placeholder='Telephone Number'
+        placeholder='phone Number or E-mail'
        keyboardType='numeric'
        
       />
@@ -68,26 +67,26 @@ const Login = ({navigation}) => {
         style={styles.input2}
         secureTextEntry={true}
         placeholder="Password"
-        onChange={onChangeText}
-        value={text}
+        onChange={onChangePass}
+        value={pass}
        
       />
       </View>
           <View
             style={{alignItems: 'flex-end', width: '78%', paddingRight: 16, }}>
-            <TouchableOpacity><Text onPress={() => navigation.navigate("ForgotPasswords")} style={{color: '#337722', fontWeight: 'bold', fontSize: 16}}>
+            <TouchableOpacity><Text onPress={() => navigation.navigate("ForgotPasswords")} style={{color: '#337722', fontWeight: 'bold', fontSize: 16,marginTop:15}}>
               Forgot Password ?
             </Text></TouchableOpacity>
           </View>
           <View 
           style={{width:200}}>
-          <Btn textColor='white' bgColor={'#337722'} btnLabel="Login"   Press={() => navigation.navigate("FarmerView")}     /></View>
+          <Btn textColor='white' bgColor={'#337722'} btnLabel="Login"   Press={() => navigation.navigate("Home")}     /></View>
           <View style={{ display: 'flex', flexDirection :'row', justifyContent: "center" }}>
             <Text style={{ fontSize: 16, fontWeight:"bold", }}>Don't have an account ? </Text>
            <Text onPress={() => navigation.navigate("Sinup")} style={{ color: '#337722', fontWeight: 'bold', fontSize: 16 }}>Signup</Text> 
           </View>
-          <View>
-          <Text  style={{fontWeight:'800',padding:10}}> Or for explore our product as <TouchableOpacity activeOpacity={0.4}><Text style={{color:'#1776C7', fontWeight:'bold', fontSize:18 }}>Guest</Text></TouchableOpacity>  </Text>
+          <View style={{paddingTop:20}}>
+          <Text  style={{fontWeight:'800'}}> Or explore our App as <Text style={{color:'#1776C7', fontWeight:'bold', fontSize:16,paddingVertical:10}} >Guest</Text></Text>
           
           </View>
         </View>

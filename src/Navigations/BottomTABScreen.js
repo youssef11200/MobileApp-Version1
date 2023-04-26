@@ -1,13 +1,12 @@
 import React from 'react';
-import { StyleSheet, TouchableOpacity, View } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Icon from 'react-native-vector-icons/Ionicons';
 import Home from '../screens/Home/Home'
-import Profile from '../screens/Home/Profile'
-import AddProduct from '../screens/Home/AddProduct'
 import FarmerView from '../screens/Home/FarmerView';
 import Favorite from '../screens/Home/Favorite';
-import Addcoop from '../screens/Home/Addcoop';
+import BuyerView from '../screens/Home/BuyerView';
+import { Image } from 'react-native';
+import Notification from '../screens/Home/Notification';
 
 
 const Tab = createBottomTabNavigator();
@@ -21,7 +20,18 @@ const CustomTabBarIcon = (name, focused) => {
       color={focused ? '#2979FF' : '#999999'}
     />
   );
+  
 };
+const Iconmarket=(focused)=>{
+  return(
+  <Image tintColor={focused ? '#2979FF' : '#999999'} style={{width:35,height:30,}} source={(require('../screens/assets/marketplaceicon.png'))} />  
+  )
+}
+// const Iconpanier=(focused)=>{
+//   return(
+//   <Image tintColor={focused ? '#2979FF' : '#999999'} style={{width:35,height:30,}} source={(require('../screens/assets/panier.png'))} />  
+//   )
+// }
 
 // const CustomTabBarButton = ({ children, onPress }) => {
 //   return (
@@ -42,26 +52,32 @@ const CustomTabBarIcon = (name, focused) => {
 
 const MainTabNavigator = () => {
   return (
-    <Tab.Navigator screenOptions={{headerShown:false,tabBarShowLabel:false,tabBarStyle:[{display:'flex'},null]}} 
-      initialRouteName="Home"
-    
-     >
+    <Tab.Navigator screenOptions={{headerShown:false,tabBarShowLabel:false,}}   >
       
-      <Tab.Screen
-        name="armerView"
-        component={FarmerView}
-        options={{
-          tabBarIcon: ({ focused }) => CustomTabBarIcon('person', focused),
-        }} 
-      />
       <Tab.Screen
         name="Home"
         component={Home}
         options={{
-          tabBarIcon: ({ focused }) => CustomTabBarIcon('home-outline', focused),
-        }}
+          tabBarIcon: ({focused}) => Iconmarket(focused),
+        }} 
       />
       <Tab.Screen
+        name="FarmerView"
+        component={FarmerView}
+        options={{
+          tabBarIcon: ({ focused }) => CustomTabBarIcon('home-outline', focused),
+        }} 
+      />
+    
+      <Tab.Screen
+        name="BuyerView"
+        component={Notification}
+        options={{
+          tabBarIcon: ({ focused }) => CustomTabBarIcon('notifications-outline', focused),
+        }}
+      />
+      
+      {/* <Tab.Screen
         name="AddProduct"
         component={AddProduct}
         options={{
@@ -73,21 +89,21 @@ const MainTabNavigator = () => {
             navigation.navigate('AddProduct');
           },
         })}
-      />
+      /> */}
        <Tab.Screen
         name="Favorite"
         component={Favorite}
         options={{
-          tabBarIcon: ({ focused }) => CustomTabBarIcon('heart', focused),
+          tabBarIcon: ({ focused }) => CustomTabBarIcon('heart-outline', focused),
         }} 
       />
-       <Tab.Screen
+       {/* <Tab.Screen
         name="AddCoop"
         component={Addcoop}
         options={{
-          tabBarIcon: ({ focused }) => CustomTabBarIcon('heart', focused),
+          tabBarIcon: ({ focused }) => CustomTabBarIcon('heart-sharp', focused),
         }} 
-      />
+      /> */}
 
       
       
@@ -105,15 +121,4 @@ const MainTabNavigator = () => {
 
 export default MainTabNavigator;
 
-const styles = StyleSheet.create({
-  shadow: {
-    shadowColor: '#7F5DF0',
-    shadowOffset: {
-      width: 0,
-      height: 10,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.5,
-    elevation: 5,
-  },
-});
+

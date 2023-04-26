@@ -1,17 +1,29 @@
-import {Button, SafeAreaView, ScrollView, StatusBar, StyleSheet, Text, TextInput, TouchableOpacity, View} from 'react-native';
-import React from 'react';
+import { SafeAreaView, ScrollView, StatusBar, StyleSheet, Text, TextInput, TouchableOpacity, View,Picker} from 'react-native';
+import React,{useState} from 'react';
 import Field from './Field';
-import Btn from './Btn';
+import Icon from 'react-native-vector-icons/Ionicons';
+
+
 
 const AddProduct = () => {
+  // const [selectedValue, setSelectedValue] = useState('option1');
   return (
     <SafeAreaView >
-       <StatusBar translucent={false} backgroundColor='#337722' />
+       
     
     <View style={styles.header}>
-      {/* icon user image */}
-      {/* icon user */}
-      {/* icon parametre */}
+    <Icon
+                name="reorder-four-outline"
+                size={28}
+                color="white"
+                style={{paddingRight:100}}
+              />
+               <Icon
+                name="person-circle-sharp"
+                size={50}
+                color="white"
+                style={{paddingLeft:80}}
+              />
     </View>
     <ScrollView showsVerticalScrollIndicator={false} >
     <View >
@@ -36,11 +48,11 @@ const AddProduct = () => {
     <Text style={{fontSize:16,fontWeight:'700',color:'#b97a56',fontWeight:'900',paddingLeft:20,fontFamily:'robuto'}}>Details</Text>
       
     <View style={styles.inputAddProduct}>
-    <Text style={styles.textinputProduct}>Type </Text>
-    <Field placeholder="Product Name ?" backgroundColor='#f0f2f5' style={styles.fieldSpace}   keyboardType="numeric" /> 
+    <Text style={styles.textinputProduct}>Production Name </Text>
+    <Field placeholder="Production Name ?" backgroundColor='#f0f2f5' style={styles.fieldSpace}   keyboardType="numeric" /> 
       
     <Text style={styles.textinputProduct}> Price</Text>
-      <Field placeholder="Contact Number ?" backgroundColor='#f0f2f5' style={styles.fieldSpace}     keyboardType="numeric" /> 
+      <Field placeholder="Price ?" backgroundColor='#f0f2f5' style={styles.fieldSpace}     keyboardType="numeric" /> 
       <Text style={styles.textinputProduct}>PH</Text>
       <Field placeholder='Write PH Value ?' backgroundColor='#f0f2f5' style={styles.fieldSpace}  keyboardType="numeric"/> 
       <Text style={styles.textinputProduct}>Moisture</Text>
@@ -50,6 +62,10 @@ const AddProduct = () => {
       <TouchableOpacity  style={styles.button}>
       <Text style={styles.text}>Submit</Text>
     </TouchableOpacity>
+    <View>
+       <Text>Select an option:</Text>
+      
+     </View>
     </View>
 
     </ScrollView>
@@ -60,9 +76,10 @@ const AddProduct = () => {
 export default AddProduct;
 const styles = StyleSheet.create({
   header:{
-    paddingVertical:'20%',
+    paddingVertical:'15%',
+    display:'flex',
     flexDirection:'row',
-    justifyContent:'space-between',
+    justifyContent:'space-around',
     backgroundColor:'#337722',
     
   },
