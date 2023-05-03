@@ -15,9 +15,9 @@ const MyDrawer=() =>{
       marginLeft: -25,
       fontFamily: 'Roboto-Medium',
       fontSize: 15,
-    },drawerType:'slide',
+    },
       }}
-       drawerContent={props=><CustomDrawer {...props}/>}>
+       drawerContent={props=><CustomDrawer {...props} />}>
         <Drawer.Screen name="Explore" component={BottomTABScreen}  options={{drawerIcon: ()=>( <Icon name="file-tray-stacked-outline" size={20} color='black'/>) }}  />
 
     <Drawer.Screen name="Add Production" component={AddProduct}  options={{drawerIcon: ()=>( <Icon name="add-outline" size={20} color='black'/>) }}  />

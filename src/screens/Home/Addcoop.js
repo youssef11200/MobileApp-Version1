@@ -142,21 +142,8 @@ const AnimatedTextInput = Animated.createAnimatedComponent(TextInput);
 const countries = ['Pistache','Amond','Olive','Date']
 const Naturel = ['Bio','Not Bio']
 const AnimatedForm = () => {
-  const animatedValue = new Animated.Value(0);
-
-  useEffect(() => {
-    Animated.timing(animatedValue, {
-      toValue: 1,
-      duration: 500,
-      useNativeDriver: true,
-    }).start();
-  }, []);
-
-  const translateY = animatedValue.interpolate({
-    inputRange: [0, 1],
-    outputRange: [-100, 0],
-  });
-
+  
+ 
   return (
     <View   style={{backgroundColor:'#c5c6d0',flex:1 }}>
       <View style={styles.header}>
@@ -175,18 +162,10 @@ const AnimatedForm = () => {
     </View>
     <Text style={{marginTop:80,backgroundColor:'#ffff',height:60,paddingVertical:10,fontSize:19,fontWeight:'600',paddingHorizontal:70}}> Coperative characteristics</Text>
       <View style={{ flexDirection:'row',marginBottom:30}} >
-       <SelectDropdown  buttonStyle={{borderColor:'black',borderBottomWidth:1,marginTop:70,marginRight:20,width:180,}}
-       defaultButtonText='1.Product type' data={countries} onSelect={(selectedItem, index) => { console.log(selectedItem, index)}} renderDropdownIcon={()=>{
- return(<View><Icon
-                name="chevron-down-outline"
-                size={22}
-                color="black"
-                style={{paddingTop: 10,}}
-              />
-   </View>)   }}/>
+       
  
        <SelectDropdown  buttonStyle={{borderColor:'black',borderBottomWidth:1,marginTop:70,marginRight:20,width:180,}} data={Naturel}
-        defaultButtonText='2.biological' onSelect={(selectedItem, index) => { console.log(selectedItem, index)}}
+        defaultButtonText='1.biological' 
         renderDropdownIcon={()=>{
           return(<View><Icon
                          name="chevron-down-outline"
@@ -194,26 +173,31 @@ const AnimatedForm = () => {
                          color="black"
                          style={{paddingTop: 10,}}
                        /></View>)}}/>
+        <SelectDropdown  buttonStyle={{borderColor:'black',borderBottomWidth:1,marginTop:70,marginRight:20,width:180,}}
+       defaultButtonText='2.Product type' data={countries}  renderDropdownIcon={()=>{
+ return(<View><Icon
+                name="chevron-down-outline"
+                size={22}
+                color="black"
+                style={{paddingTop: 10,}}
+              />
+   </View>)   }}/>
        
 </View>
 
     <View style={styles.container}>
 
-      <Animated.View style={[styles.formField, { transform: [{ translateY }] }]}>
+      <Animated.View style={styles.formField }>
       <Text>  Name</Text>
         <AnimatedTextInput style={styles.input} placeholder="Quantity ?" />
         </Animated.View>
-        <Animated.View style={[styles.formField, { transform: [{ translateY }] }]}>
+        <Animated.View style={styles.formField }>
       <Text> Max Qunatity</Text>
-        <AnimatedTextInput style={styles.input} placeholder="Quantity ?" />
-        </Animated.View>
-        <Animated.View style={[styles.formField, { transform: [{ translateY }] }]}>
-       <Text>Qunatity</Text>
         <AnimatedTextInput style={styles.input} placeholder="Quantity ?" />
         </Animated.View>
         </View>
         <View style={styles.container} >
-        <Animated.View style={[styles.formField, { transform: [{ translateY }] }]}>
+        <Animated.View style={styles.formField}>
         <Text>Price</Text>
         <AnimatedTextInput style={styles.input} placeholder="price ?" />
         </Animated.View>

@@ -287,6 +287,7 @@ dependencies {
     }
 }
 
+
 if (isNewArchitectureEnabled()) {
     // If new architecture is enabled, we let you build RN from source
     // Otherwise we fallback to a prebuilt .aar bundled in the NPM package.
@@ -315,3 +316,4 @@ def isNewArchitectureEnabled() {
     // - Set an environment variable `ORG_GRADLE_PROJECT_newArchEnabled=true`
     return project.hasProperty("newArchEnabled") && project.newArchEnabled == "true"
 }
+

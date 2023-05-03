@@ -12,6 +12,13 @@ import React from 'react';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 
+import EditCoop from './EditCoop';
+import EditProduct from './EditProduct';
+
+// const axiosRequest =require("axios")
+// async function getProduction(){
+//   let respons = await axiosRequest.get('https://jsonplaceholder.typicode.com/users')
+// }
 const categoryIcons = [
   <Text>All</Text>,<Text>Olive</Text>,
   <Text>Amond</Text>,
@@ -74,7 +81,7 @@ const FarmerView = () => {
             </View>
           </View>
         </View>
-        <View style={{marginTop:80}}>
+        <View style={{marginTop:100}}>
        <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
         <ListCategory />
         </ScrollView>
@@ -91,8 +98,17 @@ const FarmerView = () => {
             See all
           </Text>
         </View>
-        
-        <View style={styles.productContainer}></View>
+       
+        <View style={styles.productContainer}>
+        <View>
+          <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
+          <EditCoop/>
+          <EditCoop/>
+          <EditCoop/>
+          </ScrollView>
+         </View>
+
+        </View>
         <View style=
               {{flexDirection: 'row',
                 justifyContent: 'space-between',
@@ -104,8 +120,15 @@ const FarmerView = () => {
               fontSize: 17,
               color: '#3A86FF',}}>See all</Text>
         </View>
-        <View style={styles.cooperativeContainer}></View>
-        <View style={styles.cooperativeContainer}></View>
+        <View style={styles.cooperativeContainer}>
+       
+          <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
+          <EditProduct/>
+          <EditProduct/>
+          <EditProduct/>
+          </ScrollView>
+        </View>
+       
       </ScrollView>
     </SafeAreaView>
   );
@@ -120,7 +143,7 @@ const styles = StyleSheet.create({
   search: {
     backgroundColor: '#337722',
     height: '13%',
-    paddingHorizontal: 20,
+    paddingHorizontal: 10,
     position: 'relative',
     borderBottomEndRadius: 25,
     borderBottomStartRadius: 25,
@@ -147,7 +170,8 @@ const styles = StyleSheet.create({
     marginHorizontal: 40,
     flexDirection: 'row',
     justifyContent: 'space-around',
-    marginRight:30,width:500,
+    marginRight:30,
+    width:500,
   
   },
   iconContainer: {
@@ -192,14 +216,14 @@ const styles = StyleSheet.create({
     top: -20,
   },
   productContainer: {
-    height: 320,
+    height: 300,
     backgroundColor: '#E5FBDB',
   },
   cooperativeContainer: {
-    height: 200,
+    height:300,
     backgroundColor: '#E5FBDB',
     marginBottom: 50,
-    position: 'relative',
+    
   },
   filterCat:{
     borderBottomColor: 'balck'

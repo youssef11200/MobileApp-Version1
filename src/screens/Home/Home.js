@@ -2,6 +2,8 @@ import { SafeAreaView, StatusBar, StyleSheet,  Text,  TextInput, TouchableOpacit
 import React ,{ useState,useEffect,} from 'react'
 import EditProduct from './EditProduct';
 import Details from './Details'
+import Production from './Production';
+import EditCoop from './EditCoop';
 
 
 const Home = () => {
@@ -17,7 +19,6 @@ const Home = () => {
   return (
     <SafeAreaView style={styles.container}>
     <StatusBar translucent={true}  />
-    
        <View>
        <ScrollView  showsVerticalScrollIndicator={false}>
       <View  source={require('../assets/green.jpg')} style={{width:'100%',height:300,backgroundColor:'#308126'}}> 
@@ -61,28 +62,27 @@ const Home = () => {
              
 
             </View>
-            {/* <FlatList  horizontal={true} >
-             {data.map((post)=>(
-           <View post={post} key={post.id} style={styles.containerscrollh}>   */}
-          {/* gradient background */}
-
-          {/* <View style={{height:150,margin:30,}} >
-          <Text style={{fontSize:20,fontWeight:'bold'}}>{post.street}</Text>
-          <Text style={styles.post}>{post.name}</Text>
-          
-          <Text style={styles.post}>{post.name}</Text>
-          
-          <Details/>
-          </View>
-             </View>))}
-             </FlatList> */}
-
-            <View style={{height:500,zIndex:-1,paddingTop:200}} backgroundColor='#F3F3F3'>
+           <View style={{height:300}}>
+            <ScrollView  horizontal={true} showsHorizontalScrollIndicator={false}  >
+            <EditCoop/>
+            <EditCoop/>
+            <EditCoop/>
+             </ScrollView> 
+             </View>
+            <View style={{height:400,zIndex:-1,}} backgroundColor='#F3F3F3'>
             <View style={{display:'flex',justifyContent:'space-around',flexDirection:'row',marginBottom:25}}>
             <Text style={{color:'#003366',paddingRight:80, fontSize:16,fontWeight:'800'}}> Popular Productions </Text>
             <TouchableOpacity><Text style={{fontSize:16,color:'#000000'}}>See All</Text></TouchableOpacity>
             </View>
-              {/* <EditProduct /> */}
+              <View>
+              <View style={{height:300}}>
+              <ScrollView  horizontal={true} showsHorizontalScrollIndicator={false}  >
+              <EditProduct/>
+              <EditProduct/>
+              <EditProduct/>
+            </ScrollView>
+             </View>
+              </View>
             </View>
             </ScrollView> 
             </View>

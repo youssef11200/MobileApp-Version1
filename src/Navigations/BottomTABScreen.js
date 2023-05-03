@@ -5,6 +5,7 @@ import Home from '../screens/Home/Home'
 import FarmerView from '../screens/Home/FarmerView';
 import Favorite from '../screens/Home/Favorite';
 import BuyerView from '../screens/Home/BuyerView';
+import Order from '../screens/Home/Order';
 import { Image } from 'react-native';
 import Notification from '../screens/Home/Notification';
 
@@ -55,23 +56,16 @@ const MainTabNavigator = () => {
     <Tab.Navigator screenOptions={{headerShown:false,tabBarShowLabel:false,}}   >
       
       <Tab.Screen
-        name="Home"
+        name="Home-buyer"
         component={Home}
         options={{
           tabBarIcon: ({focused}) => Iconmarket(focused),
         }} 
       />
-      <Tab.Screen
-        name="FarmerView"
-        component={FarmerView}
-        options={{
-          tabBarIcon: ({ focused }) => CustomTabBarIcon('home-outline', focused),
-        }} 
-      />
     
       <Tab.Screen
-        name="BuyerView"
-        component={Notification}
+        name="BuyerVieww"
+        component={BuyerView}
         options={{
           tabBarIcon: ({ focused }) => CustomTabBarIcon('notifications-outline', focused),
         }}
@@ -91,8 +85,8 @@ const MainTabNavigator = () => {
         })}
       /> */}
        <Tab.Screen
-        name="Favorite"
-        component={Favorite}
+        name="Order"
+        component={Order}
         options={{
           tabBarIcon: ({ focused }) => CustomTabBarIcon('heart-outline', focused),
         }} 

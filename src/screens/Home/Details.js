@@ -24,9 +24,9 @@ const App = () => {
                 padding: 10,
                 elevation: 2,
                backgroundColor: '#2196F3',
-               width:50,marginTop:30}}
+               width:300,marginTop:15,marginLeft:50}}
               onPress={() => setModalVisible(!modalVisible)}>
-              <Text style={styles.textStyle}>X</Text>
+              <Text style={styles.textStyle}>Return </Text>
             </Pressable>
           </View>
         </View>

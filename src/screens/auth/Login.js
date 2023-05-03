@@ -68,7 +68,7 @@ const Login = ({navigation}) => {
         secureTextEntry={true}
         placeholder="Password"
         onChange={onChangePass}
-        value={pass}
+       
        
       />
       </View>
