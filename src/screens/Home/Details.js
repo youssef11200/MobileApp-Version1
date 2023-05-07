@@ -7,8 +7,9 @@ const App = () => {
   return (
     <View style={styles.centeredView}>
       <Modal
-        animationType="slide"
+        animationType='fade'
         transparent={false}
+        hardwareAccelerated={true}
         visible={modalVisible}
         onRequestClose={() => {
           Alert.alert('Modal has been closed.');
@@ -19,16 +20,17 @@ const App = () => {
             <View>
           <Production/>
       </View>
-            <Pressable
+           
+          </View>
+          <Pressable
               style={{ borderRadius: 20,
                 padding: 10,
                 elevation: 2,
                backgroundColor: '#2196F3',
-               width:300,marginTop:15,marginLeft:50}}
+               width:300,marginTop:15,marginLeft:"5%"}}
               onPress={() => setModalVisible(!modalVisible)}>
               <Text style={styles.textStyle}>Return </Text>
             </Pressable>
-          </View>
         </View>
       </Modal>
       <Pressable
@@ -42,10 +44,27 @@ const App = () => {
 
 const styles = StyleSheet.create({
   centeredView: {
-    flex: 1,
-    
+   
+
+    alignItems: 'center',
+    marginTop: 10,
   },
- 
+  modalView: {
+    borderBottomLeftRadius: 10,
+    borderBottomRightRadius:10,
+    paddingBottom: 15,
+    paddingRight: 15,
+    paddingLeft: 15,
+    paddingTop: 6,
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 4,
+    elevation: 5,
+  },
   button: {
     borderRadius: 20,
     padding: 10,

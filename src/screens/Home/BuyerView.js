@@ -134,35 +134,7 @@ const BuyerView = () => {
        
        
       </ScrollView>
-      {/* <TabBuyer.Navigator screenOptions={{headerShown:false,tabBarShowLabel:false,}}   >
-      
-      <TabBuyer.Screen
-        name="Home"
-        component={Home}
-        options={{
-          tabBarIcon: ({focused}) => Iconmarket(focused),
-        }} 
-      />
-     
-    
-      <TabBuyer.Screen
-        name="BuyerView"
-        component={BuyerView}
-        options={{
-          tabBarIcon: ({ focused }) => CustomTabBuyerIcon('notifications-outline', focused),
-        }}
-      />
-      
-      
-       <TabBuyer.Screen
-        name="Order"
-        component={Order}
-        options={{
-          tabBarIcon: ({ focused }) => CustomTabBuyerIcon('heart-outline', focused),
-        }} 
-      />
-    </TabBuyer.Navigator > */}
-    
+   
     </SafeAreaView>
     
   );

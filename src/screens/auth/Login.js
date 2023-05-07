@@ -8,7 +8,7 @@ import  Icon  from 'react-native-vector-icons/Ionicons';
 
 const Login = ({navigation}) => {
  
-    const [pass, onChangePass] = React.useState("");
+    const [password, onChangePassword] = React.useState("");
     const [number, onChangeNumber] = React.useState("");
    
     
@@ -36,12 +36,12 @@ const Login = ({navigation}) => {
         <View
           style={{
             backgroundColor: 'white',
-            height: '85%',
-            width: 350,
+            height: '90%',
+            width: 420,
             borderTopLeftRadius: 130,
             paddingTop: 70,
             alignItems: 'center',
-            marginTop:'10%',
+           
             margin: 20 ,
            
           }}>
@@ -67,8 +67,9 @@ const Login = ({navigation}) => {
         style={styles.input2}
         secureTextEntry={true}
         placeholder="Password"
-        onChange={onChangePass}
-       
+        onChange={onChangePassword}
+        value={password}
+      
        
       />
       </View>

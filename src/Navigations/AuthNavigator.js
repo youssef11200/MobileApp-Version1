@@ -6,6 +6,7 @@ import MyDrawer from './DrawerNavigator';
 import GetStarted from '../screens/auth/GetStarted';
 import ForgotPasswords from '../screens/auth/ForgotPasswords'
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import FarmerView from '../screens/Home/FarmerView';
 
 
 const Stack = createNativeStackNavigator();
@@ -33,7 +34,7 @@ function AuthNavigator() {
 <Stack.Screen 
         name="Home" component={MyDrawer}/>
 
-        <Stack.Screen name="BuyerView" component={BuyerView} />
+        <Stack.Screen name="FarmerView" component={FarmerView} />
        
     
     </Stack.Navigator>

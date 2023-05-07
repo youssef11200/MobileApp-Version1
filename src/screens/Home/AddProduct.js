@@ -29,20 +29,10 @@ const AddProduct = () => {
                 />
       </View>
       <Text style={{marginTop:80,backgroundColor:'#ffff',height:60,paddingVertical:10,fontSize:19,fontWeight:'600',paddingHorizontal:70}}> Production characteristics</Text>
-        <View style={{ flexDirection:'row',marginBottom:30}} >
+        <View style={{ flexDirection:'row',marginBottom:20}} >
         
-   
-         <SelectDropdown  buttonStyle={{borderColor:'black',borderBottomWidth:1,marginTop:70,marginRight:20,width:180,}} data={Naturel}
-          defaultButtonText='1.biological' 
-          renderDropdownIcon={()=>{
-            return(<View><Icon
-                           name="chevron-down-outline"
-                           size={22}
-                           color="black"
-                           style={{paddingTop: 10,}}
-                         /></View>)}}/>
-                          <SelectDropdown  buttonStyle={{borderColor:'black',borderBottomWidth:1,marginTop:70,marginRight:20,width:180,}}
-         defaultButtonText='2.Product type' data={countries}  renderDropdownIcon={()=>{
+        <SelectDropdown  buttonStyle={{borderColor:'black',borderBottomWidth:1,marginTop:70,marginRight:35,width:180,}}
+         defaultButtonText='1.Product ' data={countries}  renderDropdownIcon={()=>{
    return(<View><Icon
                   name="chevron-down-outline"
                   size={22}
@@ -50,40 +40,49 @@ const AddProduct = () => {
                   style={{paddingTop: 10,}}
                 />
      </View>)   }}/>
+         <SelectDropdown  buttonStyle={{borderColor:'black',borderBottomWidth:1,marginTop:70,marginRight:20,width:180,}} data={Naturel}
+          defaultButtonText='2.Product Type' 
+          renderDropdownIcon={()=>{
+            return(<View><Icon
+                           name="chevron-down-outline"
+                           size={22}
+                           color="black"
+                           style={{paddingTop: 10,}}
+                         /></View>)}}/>
+                    
          
   </View>
   
-      <View style={styles.container}>
+    
   
-        <Animated.View style={styles.formField }>
-        <Text>  Name</Text>
-          <AnimatedTextInput style={styles.input} placeholder="Quantity ?" />
-          </Animated.View>
+        
+  <View style={styles.container} >
           <Animated.View style={styles.formField }>
         <Text>  Qunatity</Text>
           <AnimatedTextInput style={styles.input} placeholder="Quantity ?" />
           </Animated.View>
-          <Animated.View style={styles.formField }>
-         <Text>Quality</Text>
-          <AnimatedTextInput style={styles.input} placeholder="Quality " />
+          <Animated.View style={styles.formField}>
+          <Text>moisture</Text>
+          <AnimatedTextInput style={styles.input} placeholder="moisture ?" />
           </Animated.View>
+          <Animated.View style={styles.formField}>
+          <Text>PH</Text>
+          <AnimatedTextInput style={styles.input} placeholder="moisture ?" />
+          </Animated.View>
+  
           </View>
-          <View style={styles.container} >
-          <Animated.View style={styles.formField}>
-          <Text>Price</Text>
-          <AnimatedTextInput style={styles.input} placeholder="price ?" />
-          </Animated.View>
-          <Animated.View style={styles.formField}>
-          <Text>moisture</Text>
-          <AnimatedTextInput style={styles.input} placeholder="moisture ?" />
-          </Animated.View>
-          <Animated.View style={styles.formField}>
-          <Text>moisture</Text>
-          <AnimatedTextInput style={styles.input} placeholder="moisture ?" />
+          <Animated.View style={{ backgroundColor: '#fff',
+      padding: 10,
+      marginLeft:25,
+      marginBottom:10,
+      
+      width:'88%',height:100,
+      margin:"3%",}}>
+          <Text>Description:</Text>
+          <AnimatedTextInput style={styles.input} />
           </Animated.View>
           
-         
-          </View>
+       
       </View>
     );
   };
@@ -94,19 +93,21 @@ const AddProduct = () => {
       alignItems: 'center',
       flexDirection:'row',
       marginTop:20,
+      marginLeft:15
     },
     formField: {
       backgroundColor: '#fff',
       borderRadius: 5,
       padding: 10,
       marginBottom:10,
+      
       width:125,
-      margin:"1%",
+      margin:"3%",
     },
     input: {
       fontSize: 12,
       fontWeight: 'bold',
-      borderBottomWidth:1,
+
   
     },
     header:{

@@ -1,15 +1,14 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
-import MapBox from './MapBox'
 
-const Favorite = () => {
+const CooperativeDetails = () => {
   return (
     <View>
-     <MapBox/>
+      <Text>CooperativeDetails</Text>
     </View>
   )
 }
 
-export default Favorite
+export default CooperativeDetails
 
 const styles = StyleSheet.create({})

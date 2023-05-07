@@ -4,6 +4,8 @@ import Background from '../Home/Background';
 import Btn from '../Home/Btn';
 import Field from '../Home/Field';
 import { SceneView } from 'react-navigation';
+import SelectDropdown from 'react-native-select-dropdown';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 
 
@@ -13,11 +15,11 @@ const Sinup = ({ navigation }) => {
   const [number, onChangeNumber] = React.useState(null)
   const [password, onChangePassword] = React.useState("")
   const [cpassword, onChangeCpassword] = React.useState("")
-
+const userType =['Farmer','Buyer']
   return (
     <Background>
 
-      <SafeAreaView style={{ flex: 1, height: 900 }} >
+      <SafeAreaView style={{ flex: 1}} >
 
         <Text
           style={{
@@ -37,20 +39,31 @@ const Sinup = ({ navigation }) => {
           <View
             style={{
               backgroundColor: 'white',
-              height: 480,
-              width: '105%',
+              height: 550,
+              width: 400,
               borderTopLeftRadius: 130,
               paddingTop: 20,
               paddingLeft: 65,
-              marginLeft: '2%'
+             justifyContent:'center',
+             left:'12%'
+            
             }}>
-
+ <SelectDropdown  buttonStyle={{borderColor:'rgb(220,220, 220)',borderBottomWidth:1,width:300,}} data={userType}
+          defaultButtonText='User Type' 
+          renderDropdownIcon={()=>{
+            return(<View><Icon
+                           name="chevron-down-outline"
+                           size={22}
+                           color="black"
+                           style={{paddingTop: 10,}}
+                         /></View>)}}/>
             <Field placeholder="Full Name" onChangeText={onChangeFullname}
               value={fullname} />
             <Field placeholder="Contact Number" keyboardType='numeric' onChangeText={onChangeNumber}
               value={number} />
             <Field placeholder="Password" secureTextEntry={true} onChangeText={onChangePassword}
               value={password} />
+
             <Field placeholder="Confirm Password"  returnKeyLabel='done' style={{ alignItems: 'center' }} secureTextEntry={true} onChangeText={onChangeCpassword}
               value={cpassword} />
 

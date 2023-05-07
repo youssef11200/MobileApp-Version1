@@ -139,8 +139,9 @@ import Icon from 'react-native-vector-icons/Ionicons';
 
 
 const AnimatedTextInput = Animated.createAnimatedComponent(TextInput);
-const countries = ['Pistache','Amond','Olive','Date']
+const product = ['Pistache','Amond','Olive','Date']
 const Naturel = ['Bio','Not Bio']
+const method =['Per Quote','Per Percentage','Per Equity']
 const AnimatedForm = () => {
   
  
@@ -164,8 +165,8 @@ const AnimatedForm = () => {
       <View style={{ flexDirection:'row',marginBottom:30}} >
        
  
-       <SelectDropdown  buttonStyle={{borderColor:'black',borderBottomWidth:1,marginTop:70,marginRight:20,width:180,}} data={Naturel}
-        defaultButtonText='1.biological' 
+       <SelectDropdown  buttonStyle={{borderColor:'black',borderBottomWidth:1,marginTop:70,marginRight:20,width:180,}} data={product}
+        defaultButtonText='1.Product' 
         renderDropdownIcon={()=>{
           return(<View><Icon
                          name="chevron-down-outline"
@@ -174,7 +175,7 @@ const AnimatedForm = () => {
                          style={{paddingTop: 10,}}
                        /></View>)}}/>
         <SelectDropdown  buttonStyle={{borderColor:'black',borderBottomWidth:1,marginTop:70,marginRight:20,width:180,}}
-       defaultButtonText='2.Product type' data={countries}  renderDropdownIcon={()=>{
+       defaultButtonText='2.Product type' data={Naturel}  renderDropdownIcon={()=>{
  return(<View><Icon
                 name="chevron-down-outline"
                 size={22}
@@ -186,33 +187,41 @@ const AnimatedForm = () => {
 </View>
 
     <View style={styles.container}>
-
       <Animated.View style={styles.formField }>
-      <Text>  Name</Text>
-        <AnimatedTextInput style={styles.input} placeholder="Quantity ?" />
-        </Animated.View>
-        <Animated.View style={styles.formField }>
       <Text> Max Qunatity</Text>
         <AnimatedTextInput style={styles.input} placeholder="Quantity ?" />
         </Animated.View>
-        </View>
-        <View style={styles.container} >
-        <Animated.View style={styles.formField}>
+           <Animated.View style={styles.formField}>
         <Text>Price</Text>
+        <AnimatedTextInput style={styles.input} placeholder="price ?" />
+        </Animated.View>
+        <Animated.View style={styles.formField}>
+        <Text>description</Text>
         <AnimatedTextInput style={styles.input} placeholder="price ?" />
         </Animated.View>
        
         </View>
+        <SelectDropdown  buttonStyle={{borderColor:'black',borderBottomWidth:1,marginTop:70,marginRight:20,width:180,left:20}} data={method}
+
+        defaultButtonText='Method of Charge' 
+        renderDropdownIcon={()=>{
+          return(<View><Icon
+                         name="chevron-down-outline"
+                         size={22}
+                         color="black"
+                         style={{paddingTop: 10,}}
+                       /></View>)}}/>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    
+      
     alignItems: 'center',
     flexDirection:'row',
     marginTop:20,
+    marginLeft:15
   },
   formField: {
     backgroundColor: '#fff',
