@@ -1,19 +1,21 @@
 import {
+  Image,
   ImageBackground,
+  Pressable,
   SafeAreaView,
   ScrollView,
   StatusBar,
   StyleSheet,
   Text,
   TextInput,
+  TouchableOpacity,
   View,
 } from 'react-native';
 import React from 'react';
 import Icon from 'react-native-vector-icons/Ionicons';
-
-
 import EditCoop from './EditCoop';
 import EditProduct from './EditProduct';
+import {CooperativesData} from '../CooperativesData.js';
 
 // const axiosRequest =require("axios")
 // async function getProduction(){
@@ -27,8 +29,90 @@ const categoryIcons = [
   <Text>Orange</Text>,
   <Text>Orange</Text>,
 ];
+const FarmerView = ({navigation}) => {
+const CooperativesList = () => {
+  return CooperativesData.map((item, index) => (
 
-const FarmerView = () => {
+    <View style={styles.container3}>        
+            <Image
+              source={{uri: item?.image[0]}}
+              alt="No picture available"
+              style={{
+                height: 180,
+                width: 250,
+                justifyContent: 'center',
+                alignItems: 'center',
+                borderRadius: 25,
+                margin: 15,
+                paddingLeft: 35,
+              }}
+            />     
+      <View /*style={{justifyContent: 'flex-start', alignItems: 'flex-start',}}*/ >
+      <Text style={styles.Text}>
+        <Icon
+          name="cart-sharp"
+          size={22}
+          color="#c3c3c3"
+          style={{paddingRight: 5, paddingTop: 10}}
+        />{' '}
+        Product Name:{' '}
+        <Text style={styles.innerText}>{item?.productName}</Text>{' '}
+      </Text>
+      <Text style={styles.Text}>
+        <Icon
+          name="leaf"
+          size={22}
+          color="#c3c3c3"
+          style={{paddingRight: 5, paddingTop: 10}}
+        />{' '}
+        Product Type:{' '}
+        <Text style={styles.innerText}>{item?.productType}</Text>{' '}
+      </Text>
+      <Text style={styles.Text}>
+        <Icon
+          name="server"
+          size={22}
+          color="#c3c3c3"
+          style={{paddingRight: 5, paddingTop: 10}}
+        />{' '}
+        Available quantity:{' '}
+        <Text style={styles.innerText}>{item?.availableQuantity}</Text>{' '}
+      </Text>
+      <Text style={styles.Text}>
+        <Icon
+          name="logo-usd"
+          size={22}
+          color="#c3c3c3"
+          style={{paddingRight: 5, paddingTop: 10}}
+        />{' '}
+        Price: <Text style={styles.innerText}>{item?.price}</Text>
+      </Text>
+      <Text style={styles.Text}>
+        <Icon
+          name="toggle"
+          size={22}
+          color="#c3c3c3"
+          style={{paddingRight: 5, paddingTop: 10}}
+        />{' '}
+        Status: <Text style={styles.innerText}>{item?.sattus}</Text>
+      </Text>
+      
+      
+      </View>
+    <Pressable
+    style={[styles.button3, styles.buttonOpen3]}
+    //onPress={() => setModalVisible(true)}
+    onPress={() => navigation.navigate("Details")}
+    >
+    <Text style={styles.textStyle}>Show Details</Text>
+  </Pressable>
+  </View>
+  ));
+};
+
+
+  
+  
   const ListCategory = () => {
     return (
       <View style={styles.ListCategory}>
@@ -48,7 +132,7 @@ const FarmerView = () => {
   };
   return (
     <SafeAreaView style={{backgroundColor: 'white'}}>
-      <StatusBar backgroundColor="#337722" />
+      <StatusBar backgroundColor="#18a34a" />
 
       <ScrollView showsVerticalScrollIndicator={false}>
         <View style={styles.search}>
@@ -86,25 +170,28 @@ const FarmerView = () => {
         <ListCategory />
         </ScrollView>
         </View>
-        <View style={styles.textInputproduct}>
-          <Text style={styles.textProduct}> Cooperatives</Text>
-          <Text
-            style={{
-              paddingTop: 35,
+        <View style=
+              {{flexDirection: 'row',
+                justifyContent: 'space-between',
+                marginTop: 20,
+                paddingBottom:20,}}>
+          <Text style={{paddingTop:30,fontSize:25,fontWeight:'bold',paddingLeft:10}}>Cooperative</Text>
+        <View style={{flexDirection:'row'}}>
+          <TouchableOpacity><Text style={{ paddingTop: 30,
               paddingRight: 15,
-              fontSize: 17,
-              color: '#3A86FF',
-            }}>
-            See all
-          </Text>
+              fontSize: 20,
+              color: '#3A86FF',}}>See all</Text></TouchableOpacity>
+                    
+          <TouchableOpacity onPress={()=>{
+            navigation.navigate('Addcoop')
+          }}><Icon name="add-circle" size={30} color="#000" style={{paddingLeft:15,paddingRight:15,paddingTop:28}}/></TouchableOpacity>  
+          </View>
         </View>
        
         <View style={styles.productContainer}>
         <View>
           <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
-          <EditCoop/>
-          <EditCoop/>
-          <EditCoop/>
+          {CooperativesList()}
           </ScrollView>
          </View>
 
@@ -114,12 +201,19 @@ const FarmerView = () => {
                 justifyContent: 'space-between',
                 marginTop: 5,
                 paddingBottom:20,}}>
-          <Text style={{paddingTop:30,fontSize:22,fontWeight:'bold'}}>Productions</Text>
-           <Text style={{ paddingTop: 30,
+          <Text style={{paddingTop:30,fontSize:25,fontWeight:'bold',paddingLeft:10}}>Productions</Text>
+        <View style={{flexDirection:'row'}}>
+          <TouchableOpacity><Text style={{ paddingTop: 30,
               paddingRight: 15,
-              fontSize: 17,
-              color: '#3A86FF',}}>See all</Text>
+              fontSize: 20,
+              color: '#3A86FF',}}>See all</Text></TouchableOpacity>
+                    
+          <TouchableOpacity onPress={()=>{
+            navigation.navigate('Addproduct')
+          }}><Icon name="add-circle" size={30} color="#000" style={{paddingLeft:15,paddingRight:15,paddingTop:28}}/></TouchableOpacity>  
+          </View>
         </View>
+    
         <View style={styles.cooperativeContainer}>
        
           <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
@@ -137,11 +231,11 @@ export default FarmerView;
 
 const styles = StyleSheet.create({
   header: {
-    backgroundColor: '#337722',
+    backgroundColor: '#18a34a',
    
   },
   search: {
-    backgroundColor: '#337722',
+    backgroundColor: '#18a34a',
     height: '13%',
     paddingHorizontal: 10,
     position: 'relative',
@@ -216,11 +310,11 @@ const styles = StyleSheet.create({
     top: -20,
   },
   productContainer: {
-    height: 300,
-    backgroundColor: '#E5FBDB',
+    height: 400,
+    
   },
   cooperativeContainer: {
-    height:300,
+    height:400,
     backgroundColor: '#E5FBDB',
     marginBottom: 50,
     
@@ -233,5 +327,22 @@ const styles = StyleSheet.create({
     flexDirection:'row',
     justifyContent:'space-around'
   
-  }
+  },
+  button3: {
+    borderRadius: 20,
+    padding: 10,
+    elevation: 2,
+    width: 180,
+  },
+  buttonOpen3: {
+    backgroundColor: '#337722',
+    margin: 15,
+  },
+  textStyle: {
+    color: 'white',
+    fontWeight: 'bold',
+    textAlign: 'center',
+    
+  
+  },
 });

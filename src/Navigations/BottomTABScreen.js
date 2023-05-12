@@ -9,6 +9,7 @@ import Order from '../screens/Home/Order';
 import { Image } from 'react-native';
 import Notification from '../screens/Home/Notification';
 import MapBox from '../screens/Home/MapBox';
+import Profile from '../screens/Home/Profile';
 
 
 const Tab = createBottomTabNavigator();
@@ -29,33 +30,39 @@ const Iconmarket=(focused)=>{
   <Image tintColor={focused ? '#2979FF' : '#999999'} style={{width:35,height:30,}} source={(require('../screens/assets/marketplaceicon.png'))} />  
   )
 }
-const Iconpanier=(focused)=>{
-  return(
-  <Image tintColor={focused ? '#2979FF' : '#999999'} style={{width:35,height:30,}} source={(require('../screens/assets/panier.png'))} />  
-  )
-}
+// const Iconpanier=(focused)=>{
+//   return(
+//   <Image tintColor={focused ? '#2979FF' : '#999999'} style={{width:35,height:30,}} source={(require('../screens/assets/panier.png'))} />  
+//   )
+// }
 
-const CustomTabBarButton = ({ children, onPress }) => {
-  return (
-    <TouchableOpacity
-      style={{
-        top: -30,
-        justifyContent: 'center',
-        alignItems: 'center',
-        ...styles.shadow,
-      }}
-      onPress={onPress}>
-      <View style={{ width: 70, height: 70, borderRadius: 35, backgroundColor: '#2979FF' }}>
-        {children}
-      </View>
-    </TouchableOpacity>
-  );
-};
+// const CustomTabBarButton = ({ children, onPress }) => {
+//   return (
+//     <TouchableOpacity
+//       style={{
+//         top: -30,
+//         justifyContent: 'center',
+//         alignItems: 'center',
+//         ...styles.shadow,
+//       }}
+//       onPress={onPress}>
+//       <View style={{ width: 70, height: 70, borderRadius: 35, backgroundColor: '#2979FF' }}>
+//         {children}
+//       </View>
+//     </TouchableOpacity>
+//   );
+// };
 
 const MainTabNavigator = () => {
   return (
     <Tab.Navigator screenOptions={{headerShown:false,tabBarShowLabel:false,}}   >
-      
+      <Tab.Screen
+        name="MapBox"
+        component={MapBox}
+        options={{
+          tabBarIcon: ({ focused }) => CustomTabBarIcon('map-outline', focused),
+        }}
+      />
       <Tab.Screen
         name="Home-buyer"
         component={Home}
@@ -63,12 +70,22 @@ const MainTabNavigator = () => {
           tabBarIcon: ({focused}) => Iconmarket(focused),
         }} 
       />
+      
     
       <Tab.Screen
-        name="FarmerView"
-        component={FarmerView}
+        name="BuyerVieww"
+        component={Profile}
         options={{
           tabBarIcon: ({ focused }) => CustomTabBarIcon('person-outline', focused),
+        }}
+      />
+       <Tab.Screen
+       
+       
+       name="FARMERvIEW"
+        component={FarmerView}
+        options={{
+          tabBarIcon: ({ focused }) => CustomTabBarIcon('settings-outline', focused),
         }}
       />
       
@@ -85,20 +102,7 @@ const MainTabNavigator = () => {
           },
         })}
       /> */}
-       <Tab.Screen
-        name="Favorite"
-        component={Favorite}
-        options={{
-          tabBarIcon: ({ focused }) => CustomTabBarIcon('notifications-outline', focused),
-        }} 
-      />
-       <Tab.Screen
-        name="mapBox"
-        component={MapBox}
-        options={{
-          tabBarIcon: ({ focused }) => CustomTabBarIcon('map-outline', focused),
-        }} 
-      />
+       
        {/* <Tab.Screen
         name="AddCoop"
         component={Addcoop}

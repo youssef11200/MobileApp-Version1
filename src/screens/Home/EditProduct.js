@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import Details from './Details'
 
-const EditProduct = ({post}) => {
+const ShowProductionDetails = () => {
  
   return (
     <View style={styles.container}>
@@ -25,8 +25,8 @@ const styles = StyleSheet.create({
     marginHorizontal: 10,
     borderRadius: 10,
     backgroundColor: '#fff',
-    width:200,
-    height:200,
+    width:230,
+    height:300,
     shadowColor: '#000',
     shadowOffset: {
       height: 2,
@@ -60,4 +60,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default EditProduct;
+export default ShowProductionDetails;

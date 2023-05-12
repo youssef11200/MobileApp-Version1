@@ -2,13 +2,13 @@ import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import Details from './Details'
 
-const EditCoop = ({ post }) => {
+const EditCoop = () => {
 
     return (
         <View style={styles.container}>
 
             <View >
-                <Text style={styles.title}> Cooperative 1</Text>
+                <Text style={styles.title}> exemple Cooperative </Text>
                 <Text>Aviable Quantity</Text>
                 <Text>Member</Text>
             </View>
@@ -25,8 +25,8 @@ const styles = StyleSheet.create({
         marginHorizontal: 10,
         borderRadius: 10,
         backgroundColor: '#fff',
-        width: 200,
-        height: 200,
+        width: 230,
+        height: 300,
         shadowColor: '#000',
         shadowOffset: {
             height: 2,

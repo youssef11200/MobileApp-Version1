@@ -7,9 +7,10 @@ const  GetStarted = ({navigation}) => {
     
       <Background>
         <View style={{ marginHorizontal: "8%", marginVertical: '20%' }}>
-        <Text style={{color:'white', fontSize:64}}>Get Started</Text>
-        <Btn bgColor={'green'} textColor='white'  btnLabel="Login" Press={() => navigation.navigate('Login')} />
-        <Btn bgColor='white' textColor={'#337722'} btnLabel="Sign up" Press={() => navigation.navigate('Sinup')} />
+        <Text style={{color:'white', fontSize:55}}>Get Started</Text>
+        <Btn bgColor='#18a34a' textColor='white'  btnLabel="Are you a Farmer" Press={() => navigation.navigate('Login')} />
+        <Btn bgColor='#18a34a' textColor='white'  btnLabel="Are you a Buyer" Press={() => navigation.navigate('Login')} />
+       
         </View>
       </Background>
    

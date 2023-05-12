@@ -133,7 +133,7 @@
 
 
 import React, { useEffect } from 'react';
-import { Animated, StyleSheet, Text, TextInput, View } from 'react-native';
+import { Animated, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import SelectDropdown from 'react-native-select-dropdown';
 import Icon from 'react-native-vector-icons/Ionicons';
 
@@ -161,7 +161,7 @@ const AnimatedForm = () => {
                 style={{paddingLeft:80}}
               />
     </View>
-    <Text style={{marginTop:80,backgroundColor:'#ffff',height:60,paddingVertical:10,fontSize:19,fontWeight:'600',paddingHorizontal:70}}> Coperative characteristics</Text>
+    <Text style={{marginTop:80,backgroundColor:'#ffff',height:70,paddingVertical:1,fontSize:19,fontWeight:'600',paddingHorizontal:1}}> Coperative characteristics</Text>
       <View style={{ flexDirection:'row',marginBottom:30}} >
        
  
@@ -183,7 +183,7 @@ const AnimatedForm = () => {
                 style={{paddingTop: 10,}}
               />
    </View>)   }}/>
-       
+  
 </View>
 
     <View style={styles.container}>
@@ -197,11 +197,11 @@ const AnimatedForm = () => {
         </Animated.View>
         <Animated.View style={styles.formField}>
         <Text>description</Text>
-        <AnimatedTextInput style={styles.input} placeholder="price ?" />
+        <AnimatedTextInput style={styles.input} placeholder="description ?" />
         </Animated.View>
        
         </View>
-        <SelectDropdown  buttonStyle={{borderColor:'black',borderBottomWidth:1,marginTop:70,marginRight:20,width:180,left:20}} data={method}
+        <SelectDropdown  buttonStyle={{borderColor:'black',borderBottomWidth:1,marginTop:7,marginRight:20,width:220,left:20}} data={method}
 
         defaultButtonText='Method of Charge' 
         renderDropdownIcon={()=>{
@@ -211,6 +211,13 @@ const AnimatedForm = () => {
                          color="black"
                          style={{paddingTop: 10,}}
                        /></View>)}}/>
+                        <View>
+   <TouchableOpacity style={{backgroundColor:'#18a34a',width:200,justifyContent:'center',alignItems:'center',borderRadius:5,marginLeft:60,marginTop:20,marginBottom:20}}>
+      <Text style={{fontSize:25,padding:10,color:'#ffff',}}>
+        Submit
+      </Text>
+     </TouchableOpacity>
+     </View>
     </View>
   );
 };
@@ -220,8 +227,8 @@ const styles = StyleSheet.create({
       
     alignItems: 'center',
     flexDirection:'row',
-    marginTop:20,
-    marginLeft:15
+   // marginTop:20,
+   // marginLeft:15
   },
   formField: {
     backgroundColor: '#fff',
@@ -239,9 +246,10 @@ const styles = StyleSheet.create({
   },
   header:{
     paddingTop:60,
-    display:'flex',
     flexDirection:'row',
     justifyContent:'space-around',
+    backgroundColor:'#18a34a',
+    paddingBottom:40,
 
     
   },

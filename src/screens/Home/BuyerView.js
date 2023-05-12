@@ -68,8 +68,8 @@ const BuyerView = () => {
   //   return <ImageBackground></ImageBackground>;
   // };
   return (
-    <SafeAreaView style={{backgroundColor: 'white'}}>
-      <StatusBar backgroundColor="#337722" />
+    <SafeAreaView style={{backgroundColor: 'white',flex:1}}>
+      <StatusBar backgroundColor="#18a34a" />
 
       <ScrollView showsVerticalScrollIndicator={false}>
         <View style={styles.search}>
@@ -134,7 +134,35 @@ const BuyerView = () => {
        
        
       </ScrollView>
-   
+      {/* <TabBuyer.Navigator screenOptions={{headerShown:false,tabBarShowLabel:false,}}   >
+      
+      <TabBuyer.Screen
+        name="Home"
+        component={Home}
+        options={{
+          tabBarIcon: ({focused}) => Iconmarket(focused),
+        }} 
+      />
+     
+    
+      <TabBuyer.Screen
+        name="BuyerView"
+        component={BuyerView}
+        options={{
+          tabBarIcon: ({ focused }) => CustomTabBuyerIcon('notifications-outline', focused),
+        }}
+      />
+      
+      
+       <TabBuyer.Screen
+        name="Order"
+        component={Order}
+        options={{
+          tabBarIcon: ({ focused }) => CustomTabBuyerIcon('heart-outline', focused),
+        }} 
+      />
+    </TabBuyer.Navigator > */}
+    
     </SafeAreaView>
     
   );
@@ -143,11 +171,11 @@ export default BuyerView;
 
 const styles = StyleSheet.create({
   header: {
-    backgroundColor: '#337722',
+    backgroundColor: '#18a34a',
    
   },
   search: {
-    backgroundColor: '#337722',
+    backgroundColor: '#18a34a',
     height: '20%',
     paddingHorizontal: 10,
     position: 'relative',
@@ -222,7 +250,7 @@ const styles = StyleSheet.create({
     top: -20,
   },
   productContainer: {
-    height: 300,
+    height: 400,
     backgroundColor: '#E5FBDB',
   },
   cooperativeContainer: {

@@ -8,7 +8,7 @@ import  Icon  from 'react-native-vector-icons/Ionicons';
 
 const Login = ({navigation}) => {
  
-    const [password, onChangePassword] = React.useState("");
+    const [pass, onChangePass] = React.useState("");
     const [number, onChangeNumber] = React.useState("");
    
     
@@ -22,7 +22,7 @@ const Login = ({navigation}) => {
         barStyle='light-content'
         showHideTransition= 'slide'
       />
-      <View style={{alignItems: 'center', width: '70%' ,marginLeft:'12%'}}>
+      <View style={{alignItems: 'center', width: '100%' ,marginLeft:'5%'}}>
         <Text
           style={{
             color: 'white',
@@ -36,16 +36,16 @@ const Login = ({navigation}) => {
         <View
           style={{
             backgroundColor: 'white',
-            height: '90%',
-            width: 420,
+            height: '85%',
+            width: "95%",
             borderTopLeftRadius: 130,
             paddingTop: 70,
             alignItems: 'center',
-           
+            marginTop:'10%',
             margin: 20 ,
            
           }}>
-          <Text style={{fontSize: 36, color: '#337722', fontWeight: 'bold'}}>
+          <Text style={{fontSize: 36, color: '#18a34a', fontWeight: 'bold'}}>
             Welcome Back
           </Text>
          <View style={styles.inputProduct}>
@@ -67,27 +67,26 @@ const Login = ({navigation}) => {
         style={styles.input2}
         secureTextEntry={true}
         placeholder="Password"
-        onChange={onChangePassword}
-        value={password}
-      
+        onChange={onChangePass}
+       
        
       />
       </View>
           <View
             style={{alignItems: 'flex-end', width: '78%', paddingRight: 16, }}>
-            <TouchableOpacity><Text onPress={() => navigation.navigate("ForgotPasswords")} style={{color: '#337722', fontWeight: 'bold', fontSize: 16,marginTop:15}}>
+            <TouchableOpacity><Text onPress={() => navigation.navigate("ForgotPasswords")} style={{color: '#18a34a', fontWeight: 'bold', fontSize: 16,marginTop:15}}>
               Forgot Password ?
             </Text></TouchableOpacity>
           </View>
           <View 
           style={{width:200}}>
-          <Btn textColor='white' bgColor={'#337722'} btnLabel="Login"   Press={() => navigation.navigate("Home")}     /></View>
+          <Btn textColor='white' bgColor={'#18a34a'} btnLabel="Login"   Press={() => navigation.navigate("Home")}     /></View>
           <View style={{ display: 'flex', flexDirection :'row', justifyContent: "center" }}>
             <Text style={{ fontSize: 16, fontWeight:"bold", }}>Don't have an account ? </Text>
-           <Text onPress={() => navigation.navigate("Sinup")} style={{ color: '#337722', fontWeight: 'bold', fontSize: 16 }}>Signup</Text> 
+           <Text onPress={() => navigation.navigate("Sinup")} style={{ color: '#18a34a', fontWeight: 'bold', fontSize: 16 }}>Signup</Text> 
           </View>
           <View style={{paddingTop:20}}>
-          <Text  style={{fontWeight:'800'}}> Or explore our App as <Text style={{color:'#1776C7', fontWeight:'bold', fontSize:16,paddingVertical:10}} >Guest</Text></Text>
+          <Text  style={{fontWeight:'800'}}> Or explore our App as <Text style={{color:'#1776C7', fontWeight:'bold', fontSize:16,paddingVertical:10}} onPress={()=>{navigation.navigate('Home')}} >Guest</Text></Text>
           
           </View>
         </View>
@@ -96,18 +95,7 @@ const Login = ({navigation}) => {
   );
 };
 const styles= StyleSheet.create({
-  cguest:{
-    position:'absolute',
-    left:'10%',
-    top:'55%',
-    paddingTop:10,
-    paddingBottom:10,
-    paddingLeft:20,
-    paddingRight:20,
-    borderRadius:100,
-    marginTop:10,
-    
-},
+ 
 input1:{
   borderBottomWidth: 1,
   borderBottomColor:'rgb(220,220, 220)',

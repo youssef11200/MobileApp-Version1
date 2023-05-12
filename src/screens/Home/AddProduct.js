@@ -3,6 +3,8 @@ import React,{useState} from 'react';
 // import Field from './Field';
 import SelectDropdown from 'react-native-select-dropdown';
 import Icon from 'react-native-vector-icons/Ionicons';
+import ImageSelect from './ImagePicker';
+import Btn from './Btn';
 
 
 const AnimatedTextInput = Animated.createAnimatedComponent(TextInput);
@@ -14,6 +16,7 @@ const AddProduct = () => {
 
     return (
       <View   style={{backgroundColor:'#c5c6d0',flex:1 }}>
+        <ScrollView>
         <View style={styles.header}>
       <Icon
                   name="reorder-four-outline"
@@ -76,12 +79,19 @@ const AddProduct = () => {
       marginLeft:25,
       marginBottom:10,
       
-      width:'88%',height:100,
-      margin:"3%",}}>
-          <Text>Description:</Text>
-          <AnimatedTextInput style={styles.input} />
+      width:'92%',height:150,
+      margin:"3%",borderRadius:5}}>
+         
+          <AnimatedTextInput style={styles.input} multiline  placeholder='Description' maxLength={200}/>
           </Animated.View>
           
+       <ImageSelect/>
+       <TouchableOpacity style={{backgroundColor:'#18a34a',width:200,justifyContent:'center',alignItems:'center',borderRadius:5,marginLeft:150,marginTop:20,marginBottom:20}}>
+      <Text style={{fontSize:25,padding:10,color:'#ffff',}}>
+        Submit
+      </Text>
+     </TouchableOpacity>
+       </ScrollView>
        
       </View>
     );
@@ -115,7 +125,7 @@ const AddProduct = () => {
       display:'flex',
       flexDirection:'row',
       justifyContent:'space-around',
-      backgroundColor:'#337722',
+      backgroundColor:'#18a34a',
       paddingBottom:40,
   
       
